@@ -1,74 +1,74 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: Mines - address app
+  title: Sport Tracker app
   license:
     name: MIT
 servers:
   - url: http://localhost:8080
 paths:
-  /town:
+  /gym:
     get:
-      summary: List all towns
-      operationId: listTowns
+      summary: List all gyms
+      operationId: listGym
       tags:
-        - town
+        - gym
       responses:
         '200':
-          description: An array of towns
+          description: An array of gym
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Town'
+                  $ref: '#/components/schemas/Gym'
     post:
-      summary: Create a town
-      operationId: createTown
+      summary: Create a gym
+      operationId: createGym
       tags:
-        - town
+        - gym
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Town'
+              $ref: '#/components/schemas/Gym'
       responses:
         '201':
           description: Null response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Town'
+                $ref: '#/components/schemas/Gym'
     put:
-      summary: Update a town
-      operationId: updateTown
+      summary: Update a gym
+      operationId: updateGym
       tags:
-        - town
+        - gym
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Town'
+              $ref: '#/components/schemas/Gym'
       responses:
         '200':
           description: Null response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Town'
-  /town/{id}:
+                $ref: '#/components/schemas/Gym'
+  /gym/{id}:
     get:
-      summary: Info for a specific town
-      operationId: getTown
+      summary: Info for a specific gym
+      operationId: getGym
       tags:
-        - town
+        - gym
       parameters:
         - name: id
           in: path
           required: true
-          description: The id of the town to retrieve
+          description: The id of the gym to retrieve
           schema:
             type: string
       responses:
@@ -77,12 +77,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Town"
+                $ref: "#/components/schemas/Gym"
     delete:
       tags:
-        - town
-      summary: Delete a town.
-      operationId: deleteTown
+        - gym
+      summary: Delete a gym.
+      operationId: deleteGym
       parameters:
         - in: path
           name: id
@@ -91,64 +91,16 @@ paths:
           required: true
       responses:
         '204':
-          description: Town has been deleted.
+          description: Gym has been deleted.
           content:
             application/json:
               schema:
                 type: string
-                description: ID of the deleted entity.
-
-  /town/{id}/address:
-    get:
-      summary: Retrieves all addresses for a given town
-      operationId: listAddresses
-      tags:
-        - address
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: The town id
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Expected response to a valid request
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Address"
-    post:
-      summary: Creates an address
-      operationId: createAddresses
-      tags:
-        - address
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: The town id
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Address'
-      responses:
-        '200':
-          description: Expected response to a valid request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Address"
+                description: ID of the gym deleted entity.
 
 components:
   schemas:
-    Town:
+    Gym:
       required:
         - name
         - postCode
@@ -158,14 +110,4 @@ components:
         name:
           type: string
         postCode:
-          type: string
-    Address:
-      required:
-        - street
-        - number
-      properties:
-        number:
-          type: integer
-          format: int64
-        street:
           type: string

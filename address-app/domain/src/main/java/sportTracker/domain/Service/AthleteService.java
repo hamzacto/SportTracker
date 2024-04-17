@@ -1,13 +1,13 @@
 package sportTracker.domain.Service;
 
-import org.springframework.domain.Port.Driven.AthleteRepositoryPort;
+import sportTracker.port.Driven.AthleteRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import sportTracker.domain.Model.Athlete;
 import sportTracker.domain.Model.Complement;
 import sportTracker.domain.Model.Gym;
 import sportTracker.domain.Model.Nutriment;
-import sportTracker.domain.Port.Driving.AthleteUseCase;
+import sportTracker.port.Driving.AthleteUseCase;
 
 import java.util.List;
 import java.util.UUID;

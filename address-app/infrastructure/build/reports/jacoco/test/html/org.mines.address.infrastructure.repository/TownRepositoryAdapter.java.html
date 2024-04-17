@@ -30,7 +30,7 @@ public class TownRepositoryAdapter implements TownRepositoryPort {
 
     @Override
     public Collection&lt;Town&gt; selectAll() {
-<span class="fc" id="L33">        return jdbcTemplate.query(&quot;select id,postCode,name from town&quot;, new TownRowMapper());</span>
+<span class="nc" id="L33">        return jdbcTemplate.query(&quot;select id,postCode,name from town&quot;, new TownRowMapper());</span>
     }
 
     @Override
@@ -62,8 +62,8 @@ public class TownRepositoryAdapter implements TownRepositoryPort {
 
     @Override
     public void delete(UUID uuid) {
-<span class="fc" id="L65">        jdbcTemplate.update(&quot;delete from address where town_id=?&quot;, uuid);</span>
-<span class="fc" id="L66">        jdbcTemplate.update(&quot;delete from town where id=?&quot;, uuid);</span>
-<span class="fc" id="L67">    }</span>
+<span class="nc" id="L65">        jdbcTemplate.update(&quot;delete from address where town_id=?&quot;, uuid);</span>
+<span class="nc" id="L66">        jdbcTemplate.update(&quot;delete from town where id=?&quot;, uuid);</span>
+<span class="nc" id="L67">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -29,29 +29,29 @@ public class AddressRepositoryAdapter implements AddressRepositoryPort {
 
     @Override
     public Address insert(Address address) {
-<span class="fc" id="L32">        final SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(Objects.requireNonNull(jdbcTemplate.getDataSource())).withTableName(&quot;address&quot;);</span>
-<span class="fc" id="L33">        final UUID uuid = UUID.randomUUID();</span>
+<span class="nc" id="L32">        final SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(Objects.requireNonNull(jdbcTemplate.getDataSource())).withTableName(&quot;address&quot;);</span>
+<span class="nc" id="L33">        final UUID uuid = UUID.randomUUID();</span>
 
-<span class="fc" id="L35">        final SqlParameterSource in = new MapSqlParameterSource()</span>
-<span class="fc" id="L36">                .addValue(&quot;id&quot;, uuid)</span>
-<span class="fc" id="L37">                .addValue(&quot;town_id&quot;, address.town().id())</span>
-<span class="fc" id="L38">                .addValue(&quot;number&quot;, address.number())</span>
-<span class="fc" id="L39">                .addValue(&quot;street&quot;, address.street());</span>
+<span class="nc" id="L35">        final SqlParameterSource in = new MapSqlParameterSource()</span>
+<span class="nc" id="L36">                .addValue(&quot;id&quot;, uuid)</span>
+<span class="nc" id="L37">                .addValue(&quot;town_id&quot;, address.town().id())</span>
+<span class="nc" id="L38">                .addValue(&quot;number&quot;, address.number())</span>
+<span class="nc" id="L39">                .addValue(&quot;street&quot;, address.street());</span>
 
-<span class="fc" id="L41">        simpleJdbcInsert.execute(in);</span>
+<span class="nc" id="L41">        simpleJdbcInsert.execute(in);</span>
 
-<span class="fc" id="L43">        return Address.AddressBuilder.anAddress()</span>
-<span class="fc" id="L44">                .withId(uuid)</span>
-<span class="fc" id="L45">                .withStreet(address.street())</span>
-<span class="fc" id="L46">                .withNumber(address.number())</span>
-<span class="fc" id="L47">                .withTown(address.town())</span>
-<span class="fc" id="L48">                .build();</span>
+<span class="nc" id="L43">        return Address.AddressBuilder.anAddress()</span>
+<span class="nc" id="L44">                .withId(uuid)</span>
+<span class="nc" id="L45">                .withStreet(address.street())</span>
+<span class="nc" id="L46">                .withNumber(address.number())</span>
+<span class="nc" id="L47">                .withTown(address.town())</span>
+<span class="nc" id="L48">                .build();</span>
     }
 
     @Override
     public Collection&lt;Address&gt; selectAll() {
-<span class="fc" id="L53">        String sql = &quot;select a.id,a.number,a.street,t.id town_id,t.name town_name,t.postCode town_postCode from address a inner join town t on a.town_id=t.id&quot;;</span>
-<span class="fc" id="L54">        return jdbcTemplate.query(sql, new AddressRowMapper());</span>
+<span class="nc" id="L53">        String sql = &quot;select a.id,a.number,a.street,t.id town_id,t.name town_name,t.postCode town_postCode from address a inner join town t on a.town_id=t.id&quot;;</span>
+<span class="nc" id="L54">        return jdbcTemplate.query(sql, new AddressRowMapper());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

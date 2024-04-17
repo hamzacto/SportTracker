@@ -1,4 +1,4 @@
-package sportTracker.domain.Port.Driving;
+package sportTracker.port.Driving;
 
 import sportTracker.domain.Model.Athlete;
 import sportTracker.domain.Model.Complement;

@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("org.mines")
+@ComponentScan({"org.mines", "sportTracker.infrastructure"})
 public class PersistenceTestConfig {
 
     @Bean

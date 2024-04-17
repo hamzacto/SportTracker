@@ -162,6 +162,107 @@ paths:
       - address
       x-content-type: application/json
       x-accepts: application/json
+  /gym:
+    get:
+      operationId: listGym
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Gym'
+                type: array
+          description: An array of gym
+      summary: List all gyms
+      tags:
+      - gym
+      x-accepts: application/json
+    post:
+      operationId: createGym
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gym'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gym'
+          description: Null response
+      summary: Create a gym
+      tags:
+      - gym
+      x-content-type: application/json
+      x-accepts: application/json
+    put:
+      operationId: updateGym
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gym'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gym'
+          description: Null response
+      summary: Update a gym
+      tags:
+      - gym
+      x-content-type: application/json
+      x-accepts: application/json
+  /gym/{id}:
+    delete:
+      operationId: deleteGym
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                description: ID of the gym deleted entity.
+                type: string
+          description: Gym has been deleted.
+      summary: Delete a gym.
+      tags:
+      - gym
+      x-accepts: application/json
+    get:
+      operationId: getGym
+      parameters:
+      - description: The id of the gym to retrieve
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gym'
+          description: Expected response to a valid request
+      summary: Info for a specific gym
+      tags:
+      - gym
+      x-accepts: application/json
 components:
   schemas:
     Town:
@@ -192,4 +293,19 @@ components:
       required:
       - number
       - street
+    Gym:
+      example:
+        name: name
+        postCode: postCode
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        postCode:
+          type: string
+      required:
+      - name
+      - postCode
 
