@@ -18,7 +18,7 @@ import java.util.UUID;
 @RequestMapping
 public class GymController implements GymApi {
     private GymUseCase gymUseCase;
-//alt insert
+    //alt insert
     @Autowired
     public GymController(GymUseCase gymUseCase) {
         this.gymUseCase = gymUseCase;
@@ -27,8 +27,9 @@ public class GymController implements GymApi {
     @Override
     public ResponseEntity<org.mines.address.api.model.Gym> getGym(String id) {
         Optional<Gym> gymById = gymUseCase.getGymById(UUID.fromString(id));
-
-
+        return gymById.map(this::map)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     // Map from gym domain to gym API
