@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mines.examples.IterationExit" tests="6" skipped="6" failures="0" errors="0" timestamp="2024-04-11T14:03:10" hostname="JAGAA" time="0.005">
+<testsuite name="org.mines.examples.IterationExit" tests="6" skipped="6" failures="0" errors="0" timestamp="2024-04-17T08:03:08" hostname="JAGAA" time="0.002">
   <properties/>
   <testcase name="shouldDemonstrateIterationExitBenefits()" classname="org.mines.examples.IterationExit" time="0.0">
     <skipped/>
@@ -10,10 +10,10 @@
   <testcase name="shouldDemonstrateIteration()" classname="org.mines.examples.IterationExit" time="0.0">
     <skipped/>
   </testcase>
-  <testcase name="shouldDemonstrateIterationExitBenefits()" classname="org.mines.examples.IterationExit" time="0.004">
+  <testcase name="shouldDemonstrateIterationExitBenefits()" classname="org.mines.examples.IterationExit" time="0.001">
     <skipped/>
   </testcase>
-  <testcase name="shouldDoWithStream()" classname="org.mines.examples.IterationExit" time="0.002">
+  <testcase name="shouldDoWithStream()" classname="org.mines.examples.IterationExit" time="0.0">
     <skipped/>
   </testcase>
   <testcase name="shouldDemonstrateIteration()" classname="org.mines.examples.IterationExit" time="0.0">

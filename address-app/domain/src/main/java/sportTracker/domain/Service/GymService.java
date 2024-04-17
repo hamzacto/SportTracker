@@ -8,6 +8,7 @@ import sportTracker.port.Driven.GymRepositoryPort;
 import sportTracker.port.Driving.GymUseCase;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Component
@@ -29,6 +30,11 @@ public class GymService implements GymUseCase {
     @Override
     public List<Gym> getGym(UUID id) {
         return List.of();
+    }
+
+    @Override
+    public Optional<Gym> getGymById(UUID id) {
+        return Optional.empty();
     }
 
     @Override

@@ -296,16 +296,12 @@ components:
     Gym:
       example:
         name: name
-        postCode: postCode
         id: id
       properties:
         id:
           type: string
         name:
           type: string
-        postCode:
-          type: string
       required:
       - name
-      - postCode
 

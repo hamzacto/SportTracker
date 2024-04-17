@@ -36,5 +36,3 @@ java/main/org/openapitools/client/model/Town.java
 pom.xml
 settings.gradle
 src/main/AndroidManifest.xml
-src/test/java/org/openapitools/client/api/GymApiTest.java
-src/test/java/org/openapitools/client/model/GymTest.java

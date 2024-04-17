@@ -264,11 +264,8 @@ components:
     Gym:
       required:
         - name
-        - postCode
       properties:
         id:
-          type: string
+          type: integer
         name:
-          type: string
-        postCode:
           type: string

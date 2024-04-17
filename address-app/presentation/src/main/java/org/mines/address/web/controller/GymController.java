@@ -1,16 +1,16 @@
 package org.mines.address.web.controller;
 
 import org.mines.address.api.controller.GymApi;
-import org.mines.address.api.model.Gym;
-import org.mines.address.domain.model.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import sportTracker.domain.Model.Gym;
 import sportTracker.port.Driving.GymUseCase;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*")
@@ -25,29 +25,28 @@ public class GymController implements GymApi {
     }
 
     @Override
-    public ResponseEntity<Gym> getGym(String id) {
-        gymUseCase.getGymById(UUID.fromString(id));
+    public ResponseEntity<org.mines.address.api.model.Gym> getGym(String id) {
+        Optional<Gym> gymById = gymUseCase.getGymById(UUID.fromString(id));
 
 
+    }
+
+    // Map from gym domain to gym API
+    private org.mines.address.api.model.Gym  map(sportTracker.domain.Model.Gym gym){
+        org.mines.address.api.model.Gym apiGym = new org.mines.address.api.model.Gym();
+        apiGym.setId(gym.getId());
+        apiGym.setName(gym.getName());
+
+        return apiGym;
     }
 
     // Map from API address to domain Gym
-    /*
-
-        private org.mines.address.domain.model.Address map(UUID townId, org.mines.address.api.model.Address address) {
-        return Address.AddressBuilder.anAddress()
-                .withNumber(address.getNumber().intValue())
-                .withStreet(address.getStreet())
-                .withTown(org.mines.address.domain.model.Town.TownBuilder.aTown().withId(townId).build())
-                .build();
-    }
-
-     */
-    private Gym map(org.mines.address.api.model.Gym gym) {
-        return Gym.GymBuilder.aGym()
-            .withId(UUID.fromString(gym.getId()))
+    private sportTracker.domain.Model.Gym map(org.mines.address.api.model.Gym gym){
+        return sportTracker.domain.Model.Gym.GymBuilder.aGym()
+            .withId(gym.getId())
             .withName(gym.getName())
             .build()
         ;
     }
+
 }
